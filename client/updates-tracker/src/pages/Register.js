@@ -16,7 +16,7 @@ const Register = () => {
   const deletingSpeed = 50; // Speed in milliseconds
   const texts = [
     "Welcome to Bitcoin Tracker         ",
-    "Created by Ravi        "
+    "Created by Ravi        ",
   ];
 
   // Function to handle typing animation
@@ -44,13 +44,16 @@ const Register = () => {
 
   // Effect for typing and deleting animation
   useEffect(() => {
-    const timer = setInterval(() => {
-      if (isDeleting) {
-        deleteText();
-      } else {
-        typeText();
-      }
-    }, isDeleting ? deletingSpeed : typingSpeed);
+    const timer = setInterval(
+      () => {
+        if (isDeleting) {
+          deleteText();
+        } else {
+          typeText();
+        }
+      },
+      isDeleting ? deletingSpeed : typingSpeed
+    );
 
     return () => clearInterval(timer);
   }, [isDeleting, currentTextIndex, currentText]);
@@ -81,12 +84,17 @@ const Register = () => {
 
   return (
     <>
-        <div className="typing-container" style={{marginBottom:"20px"}}>
-          <h1>{displayedText}</h1>
-        </div>
       <div className="register-page">
         {loading && <Spinner />}
-        <Form className="register-form" layout="vertical" onFinish={submitHandler}>
+
+        <Form
+          className="register-form"
+          layout="vertical"
+          onFinish={submitHandler}
+        >
+          <div className="typing-container" style={{ marginBottom: "10px" }}>
+            <h1>{displayedText}</h1>
+          </div>
           <Form.Item label="Name" name="name">
             <Input type="text" required />
           </Form.Item>
