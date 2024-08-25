@@ -9,10 +9,10 @@
 }
 
 .typing-container {
-  height: 50px; /* Fixed height for the title area */
+  height: 40px; /* Fixed height for the title area */
   display: flex;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
   position: absolute; /* Allows the form to remain in the center */
   top: 20%; /* Adjust this value to position the text */
   width: 100%; /* Ensures it spans the width */
@@ -24,7 +24,7 @@
   padding: 20px;
   width: 30%;
   border-radius: 20px;
-  position: relative; /* Ensures it stays in its place */
+  /* position: relative; Ensures it stays in its place */
   z-index: 1; /* Keeps the form above the typing animation */
 }
 

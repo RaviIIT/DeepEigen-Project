@@ -15,8 +15,8 @@ const Register = () => {
   const typingSpeed = 100; // Speed in milliseconds
   const deletingSpeed = 50; // Speed in milliseconds
   const texts = [
-    "Welcome to Bitcoin Tracker         ",
-    "Created by Ravi        ",
+    "Hi!  Welcome to Bitcoin Tracker",
+    "I'm Ravi, Software Developer  ",
   ];
 
   // Function to handle typing animation
@@ -92,8 +92,8 @@ const Register = () => {
           layout="vertical"
           onFinish={submitHandler}
         >
-          <div className="typing-container" style={{ marginBottom: "10px" }}>
-            <h1>{displayedText}</h1>
+          <div className="typing-container" style={{alignItems:"center", marginBottom: "1000px" }}>
+            <h1 style={{alignItems:"left"}}>{displayedText}</h1>
           </div>
           <Form.Item label="Name" name="name">
             <Input type="text" required />
