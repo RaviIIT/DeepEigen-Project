@@ -83,7 +83,7 @@ const Register = () => {
     <>
       <div className="register-page">
         {loading && <Spinner />}
-        <div className="typing-container">
+        <div className="typing-container" style={{marginBottom:"20px"}}>
           <h1>{displayedText}</h1>
         </div>
         <Form className="register-form" layout="vertical" onFinish={submitHandler}>
