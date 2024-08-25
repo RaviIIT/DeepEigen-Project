@@ -81,11 +81,11 @@ const Register = () => {
 
   return (
     <>
-      <div className="register-page">
-        {loading && <Spinner />}
         <div className="typing-container" style={{marginBottom:"100px"}}>
           <h1>{displayedText}</h1>
         </div>
+      <div className="register-page">
+        {loading && <Spinner />}
         <Form className="register-form" layout="vertical" onFinish={submitHandler}>
           <Form.Item label="Name" name="name">
             <Input type="text" required />
