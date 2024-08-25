@@ -81,7 +81,7 @@ const Register = () => {
 
   return (
     <>
-        <div className="typing-container" style={{marginBottom:"100px"}}>
+        <div className="typing-container" style={{marginBottom:"20px"}}>
           <h1>{displayedText}</h1>
         </div>
       <div className="register-page">
