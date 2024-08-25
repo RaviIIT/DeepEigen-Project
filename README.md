@@ -1,7 +1,7 @@
 # DeepEigen-Project
 # Overview
-The Real-time Bitcoin Tracker is a full-stack application that tracks Bitcoin price data in real-time and displays it visually.
-Demo - https://www.youtube.com/watch?v=VCgpXN4jfT8 
+The Real-time Bitcoin Tracker is a full-stack application that tracks Bitcoin price data in real-time and displays it visually. < br / >
+Demo - https://www.youtube.com/watch?v=VCgpXN4jfT8 < br / >
 
 ## Technology Stack
 
