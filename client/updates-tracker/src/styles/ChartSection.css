@@ -1,0 +1,20 @@
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05); /* Slightly enlarge the card */
+  box-shadow: 0 0 15px rgba(252, 223, 3, 0.8); /* Glowing effect */
+  background-color: rgba(252, 223, 3, 0.1); /* Light background */
+}
+
+.glowing-card {
+  background-color: rgb(43, 43, 43);
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+.glowing-card:hover {
+  transform: translateY(-10px); /* Slightly raise the card */
+  box-shadow: 0 0 20px rgba(255, 255, 0, 0.6), 0 0 30px rgba(255, 255, 0, 0.6); /* Glowing effect */
+}
+

@@ -1,0 +1,63 @@
+.register-page {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(0, 33, 36);
+  background: linear-gradient(90deg, rgba(0, 33, 36, 1) 0%, rgba(102, 45, 140, 1) 41%, rgba(237, 30, 121, 1) 99%);
+  position: relative; /* Added to position children */
+}
+
+.typing-container {
+  height: 50px; /* Fixed height for the title area */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute; /* Allows the form to remain in the center */
+  top: 20%; /* Adjust this value to position the text */
+  width: 100%; /* Ensures it spans the width */
+}
+
+.register-form {
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 20px;
+  width: 30%;
+  border-radius: 20px;
+  position: relative; /* Ensures it stays in its place */
+  z-index: 1; /* Keeps the form above the typing animation */
+}
+
+.register-form h2 {
+  margin-top: 10px;
+  text-align: center;
+  font-weight: bold;
+  color: #333;
+}
+
+.register-form a {
+  color: #333 !important;
+}
+
+.register-form a:hover {
+  color: black !important;
+}
+
+.register-form button {
+  background-color: #b87333;
+  color: white;
+}
+
+.register-form input:focus {
+  border: 1px solid #b87333 !important;
+  color: #b87333;
+}
+
+.register-form button:hover {
+  background-color: black;
+  color: white;
+}
+
+.linkreg {
+  font-size: large;
+}
