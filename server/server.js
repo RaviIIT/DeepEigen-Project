@@ -19,6 +19,7 @@ app.use(cors());
 
 //routes
 //user routes
+console.log("reaching server");
 app.use("/api/v1/users", require("./routes/UserRoute"));
 
 const server = http.createServer(app);

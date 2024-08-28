@@ -72,7 +72,7 @@ export class CardSection extends Component {
         <div className="text-center">
           <div
             className="text-white"
-            style={{ fontFamily: "NHaasGroteskDSPro-65Md", marginTop: "1%" }}
+            style={{ fontFamily: "NHaasGroteskDSPro-65Md", marginTop: "1%"}}
           >
             Current Price
           </div>
@@ -83,7 +83,7 @@ export class CardSection extends Component {
               fontWeight: "700",
               color: "#fcdf03",
               textAlign: "center",
-              marginBottom: "5%",
+              marginBottom: "10%",
             }}
           >
             {/* ${this.props.currentPrice} */}

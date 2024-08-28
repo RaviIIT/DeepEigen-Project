@@ -29,8 +29,8 @@ class Header extends Component {
             >
               Bitcoin Tracker
             </a>
-            <button className="btn2 btn-danger" onClick={this.logoutHandler}>
-              Logout
+            <button className="btn2 btn-warning custom-btn" onClick={this.logoutHandler}>
+              <h4>Logout</h4>
             </button>
           </div>
         </nav>

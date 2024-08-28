@@ -4,12 +4,14 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Spinner from "../components/Spinner";
 import "../styles/Login.css";
+import "../styles/Spinner.css";
 
 const Login = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   //from submit
   const submitHandler = async (values) => {
+    console.log("frontend login button handler");
     try {
       setLoading(true);
       const { data } = await axios.post(
@@ -17,6 +19,12 @@ const Login = () => {
         values
       );
       setLoading(false);
+
+      if(data.success === false)
+      {
+        message.error("Incorrect User Name or Password");
+        return;
+      }
       message.success("login success");
       localStorage.setItem(
         "user",
@@ -39,17 +47,14 @@ const Login = () => {
   return (
     <>
       <div className="login-page ">
-        {loading && <Spinner />}
+        {loading && (
+          <div className="spinner-container">
+            <Spinner />
+          </div>
+        )}
         <div className="row container">
           <div className="login-form">
             <Form layout="vertical" onFinish={submitHandler}>
-              <h2
-                style={{
-                  textAlign: "center",
-                }}
-              >
-                Welcome to Bitcoin Tracker
-              </h2>
               <h1>Login</h1>
 
               <Form.Item label="Email" name="email">

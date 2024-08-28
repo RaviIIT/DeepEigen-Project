@@ -6,12 +6,12 @@
     justify-content: center;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     background: rgb(0,33,36);
-    background: linear-gradient(90deg, rgba(0,33,36,1) 0%, rgba(102,45,140,1) 41%, rgba(237,30,121,1) 99%);
+    background: linear-gradient(90deg, #2E3192, #1BFFFF);
   }
   
   .login-form {
     background: rgb(0,33,36);
-    background: linear-gradient(90deg, rgb(163, 210, 213) 41%, rgb(197, 215, 159) 99%);
+    background: linear-gradient(90deg, #A1C4FD, #C2E9FB);
     padding: 30px;
     width: 45%;
   height: 70vh;

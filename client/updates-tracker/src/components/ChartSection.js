@@ -142,47 +142,48 @@ export class ChartSection extends Component {
   }
   prevId = this.props.Id;
 
-fetchData = async () => {
-  try {
-    let chartData = await fetch(
-      "https://api.coingecko.com/api/v3/coins/" +
-        this.props.Id +
-        "/market_chart?vs_currency=usd&days=" +
-        this.state.Price.options.selection
-    );
+  fetchData = async () => {
+    try {
+      let chartData = await fetch(
+        "https://api.coingecko.com/api/v3/coins/" +
+          this.props.Id +
+          "/market_chart?vs_currency=usd&days=" +
+          this.state.Price.options.selection
+      );
 
-    // Check if the response is not ok (e.g., status code 429 for rate limit exceeded)
-    if (!chartData.ok) {
-      throw new Error("API Request limit exceeded or server error");
+      // Check if the response is not ok (e.g., status code 429 for rate limit exceeded)
+      if (!chartData.ok) {
+        throw new Error("API Request limit exceeded or server error");
+      }
+
+      let jsonChartData = await chartData.json();
+
+      this.setState({
+        Price: {
+          options: this.state.Price.options,
+          series: [{ name: "Market Price", data: jsonChartData.prices }],
+        },
+      });
+      this.setState({
+        Market_Cap: {
+          options: this.state.Market_Cap.options,
+          series: [{ name: "Market Price", data: jsonChartData.market_caps }],
+        },
+      });
+      this.setState({
+        Tot_Vol: {
+          options: this.state.Tot_Vol.options,
+          series: [{ name: "Market Price", data: jsonChartData.total_volumes }],
+        },
+      });
+    } catch (error) {
+      // Display an error message to the user
+      console.error("Error fetching data:", error);
+      alert(
+        "API Request limit exceeded or failed to fetch data. Please try again later."
+      );
     }
-
-    let jsonChartData = await chartData.json();
-
-    this.setState({
-      Price: {
-        options: this.state.Price.options,
-        series: [{ name: "Market Price", data: jsonChartData.prices }],
-      },
-    });
-    this.setState({
-      Market_Cap: {
-        options: this.state.Market_Cap.options,
-        series: [{ name: "Market Price", data: jsonChartData.market_caps }],
-      },
-    });
-    this.setState({
-      Tot_Vol: {
-        options: this.state.Tot_Vol.options,
-        series: [{ name: "Market Price", data: jsonChartData.total_volumes }],
-      },
-    });
-  } catch (error) {
-    // Display an error message to the user
-    console.error("Error fetching data:", error);
-    alert("API Request limit exceeded or failed to fetch data. Please try again later.");
-  }
-};
-
+  };
 
   componentDidMount() {
     this.fetchData();
@@ -206,87 +207,114 @@ fetchData = async () => {
     return (
       <motion.div
         animate={{
-          x: -100,
-          y: 0,
-          scale: 1.2,
-          rotate: 360,
+          x: -50,
+          y: 10,
+          scale: 1.4,
+          rotate: 0,
         }}
         transition={{ duration: 0.5 }} // You can customize the duration and other properties
       >
-        <div className="container ">
+        <div className="container">
           <div className="row">
             <div className="col" style={{ maxWidth: "600px" }}>
               <div id="chart">
-                <div className="toolbar">
-                  <button
-                    id="one_month"
-                    onClick={() =>
-                      this.setState({
-                        Price: {
-                          options: { ...this.tooltip, selection: 1 },
-                          series: this.state.Price.series,
-                        },
-                      })
-                    }
-                  >
-                    1D
-                  </button>
-                  &nbsp;
-                  <button
-                    id="six_months"
-                    onClick={() =>
-                      this.setState({
-                        Price: {
-                          options: { ...this.tooltip, selection: 7 },
-                          series: this.state.Price.series,
-                        },
-                      })
-                    }
-                  >
-                    1W
-                  </button>
-                  &nbsp;
-                  <button
-                    id="one_year"
-                    onClick={() =>
-                      this.setState({
-                        Price: {
-                          options: { ...this.tooltip, selection: 30 },
-                          series: this.state.Price.series,
-                        },
-                      })
-                    }
-                  >
-                    1M
-                  </button>
-                  &nbsp;
-                  <button
-                    id="ytd"
-                    onClick={() =>
-                      this.setState({
-                        Price: {
-                          options: { ...this.tooltip, selection: 182 },
-                          series: this.state.Price.series,
-                        },
-                      })
-                    }
-                  >
-                    6M
-                  </button>
-                  &nbsp;
-                  <button
-                    id="all"
-                    onClick={() =>
-                      this.setState({
-                        Price: {
-                          options: { ...this.tooltip, selection: 365 },
-                          series: this.state.Price.series,
-                        },
-                      })
-                    }
-                  >
-                    1Y
-                  </button>
+                <div className="toolbar" style={{ marginBottom: "10px", alignItems:"left" }}>
+                  <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      data-toggle="button"
+                      aria-pressed="false"
+                      autocomplete="off"
+                      id="one_month"
+                      onClick={() =>
+                        this.setState({
+                          Price: {
+                            options: { ...this.tooltip, selection: 1 },
+                            series: this.state.Price.series,
+                          },
+                        })
+                      }
+                    >
+                      1D
+                    </button>
+                    &nbsp;
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      data-toggle="button"
+                      aria-pressed="false"
+                      autocomplete="off"
+                      id="six_months"
+                      onClick={() =>
+                        this.setState({
+                          Price: {
+                            options: { ...this.tooltip, selection: 7 },
+                            series: this.state.Price.series,
+                          },
+                        })
+                      }
+                    >
+                      1W
+                    </button>
+                    &nbsp;
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      data-toggle="button"
+                      aria-pressed="false"
+                      autocomplete="off"
+                      id="one_year"
+                      onClick={() =>
+                        this.setState({
+                          Price: {
+                            options: { ...this.tooltip, selection: 30 },
+                            series: this.state.Price.series,
+                          },
+                        })
+                      }
+                    >
+                      1M
+                    </button>
+                    &nbsp;
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      data-toggle="button"
+                      aria-pressed="false"
+                      autocomplete="off"
+                      id="ytd"
+                      onClick={() =>
+                        this.setState({
+                          Price: {
+                            options: { ...this.tooltip, selection: 182 },
+                            series: this.state.Price.series,
+                          },
+                        })
+                      }
+                    >
+                      6M
+                    </button>
+                    &nbsp;
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      data-toggle="button"
+                      aria-pressed="false"
+                      autocomplete="off"
+                      id="all"
+                      onClick={() =>
+                        this.setState({
+                          Price: {
+                            options: { ...this.tooltip, selection: 365 },
+                            series: this.state.Price.series,
+                          },
+                        })
+                      }
+                    >
+                      1Y
+                    </button>
+                  </div>
                 </div>
                 <Chart
                   options={this.state.Price.options}
@@ -297,8 +325,11 @@ fetchData = async () => {
                 />
               </div>
             </div>
-            <div className="col" style={{ maxWidth: "300px",marginLeft: "100px" } } >
-              <div className="card-body">
+            <div
+              className="col"
+              style={{ maxWidth: "400px", marginLeft: "100px" }}
+            >
+              <div className="card-body" style={{marginBottom:"20px"}}>
                 <h6
                   className="card-title"
                   style={{ fontFamily: "NHaasGroteskDSPro-65Md" }}
@@ -316,9 +347,10 @@ fetchData = async () => {
                 >
                   $ {this.props.MarketCap}
                 </p>
+                {/* <br/> */}
               </div>
 
-              <div className="card-body ">
+              <div className="card-body "  style={{marginBottom:"20px"}}>
                 <h6
                   className="card-title"
                   style={{ fontFamily: "NHaasGroteskDSPro-65Md" }}
@@ -337,7 +369,7 @@ fetchData = async () => {
                   $ {this.props.priceChange24}
                 </p>
               </div>
-              <div className="card-body ">
+              <div className="card-body"  style={{marginBottom:"20px"}}>
                 <h6
                   className="card-title"
                   style={{ fontFamily: "NHaasGroteskDSPro-65Md" }}
@@ -356,7 +388,7 @@ fetchData = async () => {
                   $ {this.props.TotVol}
                 </p>
               </div>
-              <div className="card-body ">
+              <div className="card-body "  style={{marginBottom:"20px"}}>
                 <h6
                   className="card-title"
                   style={{ fontFamily: "NHaasGroteskDSPro-65Md" }}

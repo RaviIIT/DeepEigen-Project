@@ -9,6 +9,7 @@ const router = express.Router();
 
 //routers
 // POST || LOGIN USER
+console.log("reached routes file");
 router.post("/login", loginController);
 
 //POST || REGISTER USER

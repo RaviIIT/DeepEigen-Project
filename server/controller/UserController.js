@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 
 // login callback
 const loginController = async (req, res) => {
-  
+  console.log("reached loginController");
   try {
     const user = await userModel.findOne({ email: req.body.email });
     
@@ -15,7 +15,9 @@ const loginController = async (req, res) => {
     }
     
     const isMatch = await bcrypt.compare(req.body.password, user.password);
+    console.log(isMatch);
     if (!isMatch) {
+      console.log("password is mismatched");
       return res
         .status(200)
         .send({ message: "Invalid email or Password", success: false });
