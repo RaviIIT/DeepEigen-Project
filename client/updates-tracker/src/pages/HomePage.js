@@ -12,7 +12,7 @@ export default class HomePage extends Component {
       Id: "bitcoin",
       Data: {},
     };
-    this.socket = io("http://localhost:4000"); // Connecting to the backend socket server
+    this.socket = io("http://localhost:4000");
   }
   componentDidMount() {
     this.socket.emit("requestData", this.state.Id);

@@ -1,32 +1,53 @@
-/* Header.css */
 .navbar {
-  background-color: #010101; /* Dark background */
+  position: relative;
+  overflow: hidden;
+  background-color: #010101;
   box-shadow: 0 7px 10px rgba(56, 123, 224, 0.644);
   transition: background-color 0.3s;
-  /* padding: 15px 0; */
-  /* border-radius: 12px; Add border-radius for rounded corners */
 }
 
-.navbar:hover {
-  background-color: #a9d24f; /* Slightly lighter on hover */
+.navbar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(54, 52, 51, 0.5),
+    rgba(242, 250, 5, 0.992)
+  );
+  transition: left 4s ease;
+  z-index: 0;
+}
+
+.navbar:hover::before {
+  left: 100%;
 }
 
 .header-brand {
-  font-family: "Arial", sans-serif; /* Elegant font family */
+  position: relative;
+  font-family: "Arial", sans-serif;
   font-size: 2rem;
-  color: #5ac2eb; /* Gold color */
+  color: #5ac2eb; 
   text-transform: uppercase;
   letter-spacing: 20px;
-  transition: color 0.3s, transform 0.3s; /* Animation effects */
+  transition: color 0.3s, transform 0.3s;
+  z-index: 1; 
 }
 
 .header-brand:hover {
-  color: #bab15d; /* Change color on hover */
-  transform: scale(2.05); /* Slight zoom effect */
+  color: #bab15d; 
+  transform: scale(1.05);
 }
 
 .custom-btn {
-  width: 120px; /* Adjust the width as needed */
-  height: 35px; /* Adjust the height as needed */
-  border-radius: 8px; /* Add border-radius to the button for rounded corners */
+  width: 120px; 
+  height: 40px; 
+  background: linear-gradient(
+    90deg,
+    rgba(54, 52, 51, 0.5),
+    rgba(250, 74, 5, 0.992)
+  );
 }

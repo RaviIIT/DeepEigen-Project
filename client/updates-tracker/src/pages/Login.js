@@ -9,7 +9,6 @@ import "../styles/Spinner.css";
 const Login = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  //from submit
   const submitHandler = async (values) => {
     console.log("frontend login button handler");
     try {

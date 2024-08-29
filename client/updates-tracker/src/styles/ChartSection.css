@@ -3,18 +3,46 @@
 }
 
 .card:hover {
-  transform: scale(1.05); /* Slightly enlarge the card */
-  box-shadow: 0 0 15px rgba(252, 223, 3, 0.8); /* Glowing effect */
-  background-color: rgba(252, 223, 3, 0.1); /* Light background */
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(252, 223, 3, 0.8);
+  background-color: rgba(252, 223, 3, 0.1);
 }
 
 .glowing-card {
   background-color: rgb(43, 43, 43);
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .glowing-card:hover {
-  transform: translateY(-10px); /* Slightly raise the card */
-  box-shadow: 0 0 20px rgba(255, 255, 0, 0.6), 0 0 30px rgba(255, 255, 0, 0.6); /* Glowing effect */
+  transform: translateY(-10px);
+  box-shadow: 0 0 20px rgba(255, 255, 0, 0.6), 0 0 30px rgba(255, 255, 0, 0.6);
 }
+
+@media (max-width: 768px) {
+  .graph-big {
+    display: none;
+  }
+  .btn-group {
+    height: 10%;
+    width: 50%;
+    margin-left: 10%;
+    margin-top: 50%;
+  }
+}
+
+.graphs {
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .graphs {
+    width: 100% !important;
+    height: 200px;
+    padding: 0 60px;
+    margin: 40px;
+    box-sizing: border-box;
+  }
+}
+
 

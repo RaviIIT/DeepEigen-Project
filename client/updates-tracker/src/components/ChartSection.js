@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Chart from "react-apexcharts";
 import { motion } from "framer-motion";
-
+import "../styles/ChartSection.css";
 export class ChartSection extends Component {
   constructor(props) {
     super(props);
@@ -17,11 +17,14 @@ export class ChartSection extends Component {
           },
           title: {
             text: "Market Price (USD)",
+            align: window.innerWidth <= 768 ? 'center' : 'left',
             style: {
-              fontSize: "22px",
+              fontSize: window.innerWidth <= 768 ? '12px' : '22px',
               fontWeight: "bold",
               color: "#fcdf03",
             },
+            margin: window.innerWidth <= 768 ? 0 : 10,
+
           },
           stroke: {
             curve: "smooth",
@@ -59,12 +62,13 @@ export class ChartSection extends Component {
             show: false,
           },
           title: {
-            text: "Market Cap (USD)",
+            text: window.innerWidth <= 768 ? " ": "Market Cap (USD)",
             style: {
               fontSize: "14px",
               fontWeight: "bold",
               color: "#ff69f5",
             },
+            marginBottom: window.innerWidth <= 768 ? 0 : 50,
           },
           stroke: {
             curve: "smooth",
@@ -101,7 +105,7 @@ export class ChartSection extends Component {
             show: false,
           },
           title: {
-            text: "Market Volume",
+            text: window.innerWidth <= 768 ? " ": "Market Volume",
             style: {
               fontSize: "14px",
               fontWeight: "bold",
@@ -212,12 +216,12 @@ export class ChartSection extends Component {
           scale: 1.4,
           rotate: 0,
         }}
-        transition={{ duration: 0.5 }} // You can customize the duration and other properties
+        transition={{ duration: 3 }}
       >
         <div className="container">
           <div className="row">
             <div className="col" style={{ maxWidth: "600px" }}>
-              <div id="chart">
+              <div id="chart" className="charts">
                 <div className="toolbar" style={{ marginBottom: "10px", alignItems:"left" }}>
                   <div class="btn-group btn-group-toggle" data-toggle="buttons">
                     <button
@@ -316,7 +320,7 @@ export class ChartSection extends Component {
                     </button>
                   </div>
                 </div>
-                <Chart
+                <Chart className="graph-big"
                   options={this.state.Price.options}
                   series={this.state.Price.series}
                   type="area"
@@ -347,7 +351,6 @@ export class ChartSection extends Component {
                 >
                   $ {this.props.MarketCap}
                 </p>
-                {/* <br/> */}
               </div>
 
               <div className="card-body "  style={{marginBottom:"20px"}}>
@@ -429,29 +432,25 @@ export class ChartSection extends Component {
             </div>
             <div className="col" style={{ maxWidth: "410px" }}>
               <motion.div
-                whileHover={{ scale: 1.05 }} // Scale effect on hover
-                transition={{ duration: 0.3 }} // Duration of the hover effect
-                style={{ marginBottom: "20px" }} // Add margin here
+                whileHover={{ scale: 1.05 }} 
+                transition={{ duration: 0.3 }} 
+                style={{ marginBottom: "20px" }}
               >
-                <Chart
+                <Chart className="graphs"
                   options={this.state.Market_Cap.options}
                   series={this.state.Market_Cap.series}
                   type="line"
-                  height="200"
-                  width="300"
                 />
               </motion.div>
               <motion.div
-                whileHover={{ scale: 1.05 }} // Scale effect on hover
-                transition={{ duration: 0.3 }} // Duration of the hover effect
-                style={{ marginBottom: "20px" }} // Add margin here
+                whileHover={{ scale: 1.05 }} 
+                transition={{ duration: 0.3 }} 
+                style={{ marginBottom: "20px" }} 
               >
-                <Chart
+                <Chart className="graphs"
                   options={this.state.Tot_Vol.options}
                   series={this.state.Tot_Vol.series}
                   type="line"
-                  height="200"
-                  width="300"
                 />
               </motion.div>
             </div>

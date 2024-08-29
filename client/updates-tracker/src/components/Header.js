@@ -11,12 +11,12 @@ class Header extends Component {
   logoutHandler = () => {
     localStorage.removeItem("user");
     message.success("Logout Successfully");
-    this.setState({ redirectToLogin: true }); // Trigger the redirect
+    this.setState({ redirectToLogin: true });
   };
 
   render() {
     if (this.state.redirectToLogin) {
-      return <Navigate to="/login" />; // Redirect to login page
+      return <Navigate to="/login" />;
     }
 
     return (
@@ -24,7 +24,7 @@ class Header extends Component {
         <nav className="navbar navbar-expand-lg custom-navbar">
           <div className="container-fluid">
             <a
-              className="navbar-brand display-2 text-dark fw-bold text-uppercase animated-logo"
+              className="navbar-brand display-2 text-light fw-bold text-uppercase animated-logo"
               href="/"
             >
               Bitcoin Tracker

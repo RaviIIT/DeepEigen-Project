@@ -1,11 +1,15 @@
 .glowing-card {
-    background-color: rgb(43, 43, 43);
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+  background-color: rgb(43, 43, 43);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glowing-card:hover {
+  transform: translateY(-20px); 
+  box-shadow: 0 0 20px rgba(255, 255, 0, 0.6), 0 0 30px rgba(255, 255, 0, 0.6); 
+}
+
+@media (max-width: 768px) {
+  .price {
+    margin-bottom: 100px;
   }
-  
-  .glowing-card:hover {
-    transform: translateY(-20px); /* Slightly raise the card */
-    box-shadow: 0 0 20px rgba(255, 255, 0, 0.6), 0 0 30px rgba(255, 255, 0, 0.6); /* Glowing effect */
-  }
-  
-  
+}

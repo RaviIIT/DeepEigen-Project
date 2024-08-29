@@ -1,61 +1,94 @@
 .login-page {
-    height: 100vh !important;
-    width: 100vw !important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    background: rgb(0,33,36);
-    background: linear-gradient(90deg, #2E3192, #1BFFFF);
-  }
-  
-  .login-form {
-    background: rgb(0,33,36);
-    background: linear-gradient(90deg, #A1C4FD, #C2E9FB);
-    padding: 30px;
-    width: 45%;
+  height: 100vh !important;
+  width: 100vw !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background: rgb(0, 33, 36);
+  background: linear-gradient(90deg, #2e3192, #1bffff);
+}
+
+.login-form {
+  background: rgb(0, 33, 36);
+  background: linear-gradient(90deg, #a1c4fd, #c2e9fb);
+  padding: 30px;
+  width: 45%; 
   height: 70vh;
   margin-left: 23%;
   border-radius: 20px;
   transition: transform 0.4s;
-    transition-delay: 0.1s;
-  
+  transition-delay: 0.1s;
+}
+
+.login-form:hover {
+  transform: translateY(-5px);
+}
+
+.login-form h1 {
+  text-align: center;
+  margin: 30px;
+  color: #333;
+}
+
+.login-form .ant-form-item-label label {
+  font-size: large;
+  color: #333 !important;
+}
+
+.login-form button {
+  background-color: #2656ce;
+  color: white;
+  outline: none;
+}
+
+.login-form button:hover {
+  background-color: #0048ff;
+  color: white;
+}
+
+.login-form a {
+  color: #000287 !important;
+}
+
+.login-form a:hover {
+  color: black !important;
+}
+
+.btn {
+  width: 25%;
+  margin-left: 35%;
+  margin-top: 5%;
+}
+
+.sflexx {
+  flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  .login-form {
+    width: 90%;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 20px;
+    height: auto;
   }
-  .login-form:hover{
-    transform: translateY(-5px);
-  }
+
   .login-form h1 {
-    text-align: center;
-    margin: 30px;
-    color: #333;
+    font-size: 24px;
+    margin: 20px;
   }
-  
+
   .login-form .ant-form-item-label label {
-    font-size: large;
-    color: #333 !important;
+    font-size: medium; 
   }
-  .login-form button {
-    background-color: #2656ce;
-    color: white;
-    outline: none;
+
+  .btn {
+    width: 80%; 
+    margin-left: 10%;
   }
-  .login-form button:hover {
-    background-color: #0048ff;
-    color: white;
+
+  .sflexx {
+    flex-direction: column; 
   }
-  .login-form a {
-    color: #000287 !important;
-  }
-  
-  .login-form a:hover {
-    color: black !important;
-  }
-  .btn{
-    width: 25%;
-    margin-left: 35%;
-    margin-top: 5%;
-  }
-  
-  .sflexx{
-    flex-direction: column;
-  }
+}

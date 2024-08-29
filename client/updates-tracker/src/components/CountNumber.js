@@ -4,23 +4,23 @@ const CountNumber = ({ endValue, duration }) => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    if (endValue <= 0) return; // Prevent counting if the endValue is not positive
+    if (endValue <= 0) return;
 
-    const incrementAmount = Math.ceil(endValue / 100); // Adjust the increment amount as needed
-    const totalIncrements = Math.ceil(endValue / incrementAmount); // Calculate total increments
-    const incrementTime = Math.abs(Math.floor(duration / totalIncrements)); // Calculate time for each increment
+    const incrementAmount = Math.ceil(endValue / 100);
+    const totalIncrements = Math.ceil(endValue / incrementAmount);
+    const incrementTime = Math.abs(Math.floor(duration / totalIncrements));
 
     const timer = setInterval(() => {
       setCount((prevCount) => {
         if (prevCount + incrementAmount >= endValue) {
           clearInterval(timer);
-          return endValue; // Ensure it doesn't go over the end value
+          return endValue;
         }
-        return prevCount + incrementAmount; // Increment the count
+        return prevCount + incrementAmount;
       });
     }, incrementTime);
 
-    return () => clearInterval(timer); // Clean up the interval on component unmount
+    return () => clearInterval(timer);
   }, [endValue, duration]);
 
   return <span>{count}</span>;

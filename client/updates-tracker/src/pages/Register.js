@@ -12,14 +12,14 @@ const Register = () => {
   const [isDeleting, setIsDeleting] = useState(false);
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const [currentText, setCurrentText] = useState("Welcome to Bitcoin Tracker");
-  const typingSpeed = 100; // Speed in milliseconds
-  const deletingSpeed = 50; // Speed in milliseconds
+  const typingSpeed = 100; 
+  const deletingSpeed = 50;
   const texts = [
-    "Hi!  Welcome to Bitcoin Tracker",
-    "I'm Ravi, Software Developer  ",
+    "Register Bitcoin Tracker",
+    "I'm Ravi, Software Geek  ",
   ];
 
-  // Function to handle typing animation
+
   const typeText = () => {
     if (currentTextIndex < currentText.length) {
       setDisplayedText((prev) => prev + currentText[currentTextIndex]);
@@ -29,20 +29,17 @@ const Register = () => {
     }
   };
 
-  // Function to handle deleting animation
   const deleteText = () => {
     if (currentTextIndex > 0) {
       setDisplayedText((prev) => prev.slice(0, -1));
       setCurrentTextIndex((prev) => prev - 1);
     } else {
-      // Switch to the next text
       setIsDeleting(false);
       setCurrentTextIndex(0);
       setCurrentText((prev) => (prev === texts[0] ? texts[1] : texts[0]));
     }
   };
 
-  // Effect for typing and deleting animation
   useEffect(() => {
     const timer = setInterval(
       () => {

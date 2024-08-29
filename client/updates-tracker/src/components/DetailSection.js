@@ -1,7 +1,6 @@
 import React from "react";
 import {
   Box,
-  Image,
   Text,
   Stack,
   Flex,
@@ -24,15 +23,15 @@ export default function DetailSection() {
       bg={bgColor}
       pt="5rem"
       pb="2rem"
-      px="0" // Set padding to 0 to remove left/right margins
-      width="100%" // Ensure the Flex container takes the full width
+      px="0"
+      width="100%"
     >
       <Stack spacing={3} align="center">
         <Heading
           as="h2"
           fontSize={["2xl", "4xl", "5xl"]}
           color={useColorModeValue("yellow.300", "yellow.500")}
-          className="heading-text" // Custom class for additional styles if needed
+          className="heading-text"
         >
           Bitcoin Data Tracker
         </Heading>
@@ -44,14 +43,15 @@ export default function DetailSection() {
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.5, duration: 1 }}
-          className="motion-text" // Custom class for additional styles if needed
+          className="motion-text"
         >
-          Stay updated with the latest Bitcoin trends and market data in real-time.
+          Stay updated with the latest Bitcoin trends and market data in
+          real-time.
         </MotionText>
       </Stack>
 
       <MotionBox
-        width="100%" // Ensure the MotionBox takes the full width
+        width="100%"
         height="auto"
         mb={6}
         overflow="hidden"
@@ -59,8 +59,7 @@ export default function DetailSection() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 2 }}
-      >
-      </MotionBox>
+      ></MotionBox>
 
       {/* Additional styles using Chakra UI's CSS-in-JS */}
       <style jsx>{`
@@ -82,17 +81,28 @@ export default function DetailSection() {
           font-weight: bold;
           letter-spacing: 1px;
           text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.7);
-              font-size: l;
+          font-size: l;
+        }
 
+        /* Adjust heading text size on mobile */
+        @media (max-width: 768px) {
+          .heading-text {
+            font-size: 1.3rem; /* Reduced size for mobile */
+          }
         }
 
         .motion-text {
           font-style: italic;
           opacity: 0.9;
           transition: opacity 0.5s ease-in-out;
-          
         }
-
+        /* Adjust motion text size on mobile */
+        @media (max-width: 768px) {
+          .motion-text {
+            font-size: 0.875rem; /* Reduced size for mobile */
+            margin: 5%;
+          }
+        }
         .motion-text:hover {
           opacity: 1;
         }

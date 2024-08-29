@@ -76,7 +76,7 @@ export class CardSection extends Component {
           >
             Current Price
           </div>
-          <div
+          <div className="price"
             style={{
               fontFamily: "NHaasGroteskDSPro-65Md",
               fontSize: "90px",
@@ -86,7 +86,6 @@ export class CardSection extends Component {
               marginBottom: "10%",
             }}
           >
-            {/* ${this.props.currentPrice} */}
             ${<CountNumber endValue={this.props.currentPrice} duration={4000} />}
           </div>
         </div>
