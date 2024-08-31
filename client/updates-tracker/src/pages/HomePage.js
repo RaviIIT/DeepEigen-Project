@@ -20,6 +20,7 @@ export default class HomePage extends Component {
       this.setState({ Id: this.state.Id, Data: data });
     });
   }
+  
 
   render() {
     return (
