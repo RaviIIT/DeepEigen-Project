@@ -6,9 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transform: scale(0.75);
-  transform-origin: top left;
   width: 133.33%;
-  overflow-x: hidden;
 }
 
 code {
