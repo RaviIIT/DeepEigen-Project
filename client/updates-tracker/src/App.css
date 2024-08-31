@@ -36,10 +36,3 @@
     transform: rotate(360deg);
   }
 }
-
-body {
-  transform: scale(0.75);
-  transform-origin: top left;
-  width: 133.33%;
-  overflow-x: hidden;
-}
